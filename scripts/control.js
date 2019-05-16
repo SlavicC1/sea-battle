@@ -5,10 +5,11 @@ class Control{
         this.coords = { x:0, y:0 };
     }
 
-    SetShipSize(shipSize){
+    SetShipSize(shipSize,player,drawer){
         this.shipSize = shipSize;
         this.orientation = "horizontal";
         this.coords = { x:0, y:0 };
+        drawer.DrawSinglePlayerShip(player, this);
     }
 
     Up(player,drawer){
@@ -44,7 +45,7 @@ class Control{
                 this.coords.x++;
             }
         } else{
-            if(this.coords.x < this.player - 1){
+            if(this.coords.x < player.DESK_SIZE - 1){
                 this.coords.x++;
             }
         }
@@ -69,7 +70,7 @@ class Control{
     }
 
     Paste(player,choose,drawer){
-        if(IsShipCanBePast(player)){
+        if(this.IsShipCanBePast(player)){
             drawer.HideControl();
             if(choose.IsShipsLast()){
                 drawer.ShowChoose();
@@ -84,13 +85,13 @@ class Control{
         let flag = true;
         if(this.orientation === "horizontal"){
             for(let i = this.coords.x; i < this.coords.x + this.shipSize; i++){
-                if(player.desk[i,this.coords.y] != 0){
+                if(player.desk[i][this.coords.y] != 0){
                     flag = false;
                 }
             }
         } else{
             for(let i = this.coords.y; i < this.coords.y + this.shipSize; i++){
-                if(player.desk[this.coords.x,i] != 0){
+                if(player.desk[this.coords.x][i] != 0){
                     flag = false;
                 }
             }

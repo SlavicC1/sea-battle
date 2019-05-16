@@ -4,51 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sea buttle</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Sea battle</title>
 </head>
 <body>
-    <div>
-        <div id="player-field">
-            <div id="player-desk"></div>
+    <div class="b-game">
+<!--поле игрока-->
+        <div id="player" class="b-zone">
+            <canvas id="player-desk" class="b-zone__desk"></canvas>
         </div>
-
-        <div id="choose-ship">
-            <div id="one-ship">
-                <div id="one-ship-count"></div>
-                <div id="one-ship-img"></div>
+<!--выбор корабля-->
+        <div id="choose" class="b-zone">
+            <div id="one-ship" class="b-ship-zone">
+                <div id="one-ship-count" class="b-ship-zone__counter"></div>
+                <div id="one-ship-img" class="b-ship-zone__img"><img src="images/one.png" alt=""></div>
             </div>
-            <div id="two-ship">
-                <div id="two-ship-count"></div>
-                <div id="two-ship-img"></div>
+            <div id="two-ship" class="b-ship-zone">
+                <div id="two-ship-count" class="b-ship-zone__counter"></div>
+                <div id="two-ship-img" class="b-ship-zone__img"><img src="images/two.png" alt=""></div>
             </div>
-            <div id="three-ship">
-                <div id="three-ship-count"></div>
-                <div id="three-ship-img"></div>
+            <div id="three-ship" class="b-ship-zone">
+                <div id="three-ship-count" class="b-ship-zone__counter"></div>
+                <div id="three-ship-img" class="b-ship-zone__img"><img src="images/three.png" alt=""></div>
             </div>
-            <div id="four-ship">
-                <div id="four-ship-count"></div>
-                <div id="four-ship-img"></div>
-            </div>
-        </div>
-
-        <div id="start-control">
-            <div> 
-                <div id="left-b"></div>
-            </div>
-            <div>
-                <div id="up-b"></div>
-                <div id="down-b"></div>
-            </div>
-            <div>
-                <div id="right-b"></div>
+            <div id="four-ship" class="b-ship-zone">
+                <div id="four-ship-count" class="b-ship-zone__counter"></div>
+                <div id="four-ship-img" class="b-ship-zone__img"><img src="images/four.png" alt=""></div>
             </div>
         </div>
-        
-        <div id="bot-field">
-            <div id="bot-desk"></div>
+<!--выбор расположения корабля-->
+        <div id="control" class="b-zone b-zone_hide">
+            <div class="b-control__move">
+                <div id="left-b" class="b-control__left">&#9668;</div>
+                <div class="b-control__up-down"> 
+                    <div id="up-b" class="b-control__up">&#9650;</div>
+                    <div id="down-b" class="b-control__down">&#9660;</div>
+                </div>
+                <div id="right-b" class="b-control__right">&#9658;</div>
+            </div>
+            <div class="b-control__paste-rotate">
+                <div id="rotate-b" class="b-control__rotate">↺</div>
+                <div id="paste-b" class="b-control__paste">&#9679;</div>
+            </div>
+        </div>
+<!--поле бота--> 
+        <div id="bot" class="b-zone b-zone_hide">
+            <canvas id="bot-desk" class="b-zone__desk"></canvas>
         </div>
     </div>
-
+<!--загрузка скриптов-->
     <script src="scripts/player.js"></script>
     <script src="scripts/choise.js"></script>
     <script src="scripts/control.js"></script>
